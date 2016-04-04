@@ -1,0 +1,1 @@
+<?php \Fr\LS::logout(); ?>
