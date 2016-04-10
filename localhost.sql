@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Databank: `localhost`
 --
-CREATE DATABASE IF NOT EXISTS `localhost` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `localhost`;
+CREATE DATABASE IF NOT EXISTS `superangel` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `superangel`;
 
 -- --------------------------------------------------------
 

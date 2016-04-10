@@ -13,10 +13,10 @@ class Singleton{
     //array with database credentials
     private static $config = array(
       "host" => "localhost",
-      "port" => 3307,
+      "port" => 3306,
       "username" => "root",
-      "password" => "usbw",
-      "name" => "localhost"
+      "password" => "",
+      "name" => "superangel"
     );
 
     //block access to db variable and instance
