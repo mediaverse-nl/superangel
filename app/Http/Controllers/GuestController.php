@@ -14,18 +14,13 @@ class GuestController extends Controller
 {
     public function index()
     {
-        $data = array(
-            'title' => 'Home'
-        );
-        return view('index', $data);
+
+        return view('index')->with('title', 'Home');
     }
 
     public function login()
     {
-        $data = array(
-            'title' => 'Inloggen'
-        );
-        return view('login', $data);
+        return view('login')->with('title', 'Inloggen');
     }
 
     public function logout()
@@ -36,10 +31,7 @@ class GuestController extends Controller
 
     public function register()
     {
-        $data = array(
-            'title' => 'Registreren'
-        );
-        return view('register', $data);
+        return view('register')->with('title', 'Registreren');
     }
 
     public function handleLogin(Request $request)

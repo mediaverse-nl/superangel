@@ -19,8 +19,8 @@ class UserController extends Controller
 
     public function profile()
     {
-        $myAccount = \App\User::find(Auth::user()->id);
-        $data = array('title' => 'Mijn Gegevens', 'myAccount' => $myAccount);
-        return view('profile', $data);
+        return view('profile')
+            ->with('title', 'Mijn Gegevens')
+            ->with('myAccount', \App\User::find(Auth::user()->id));
     }
 }
