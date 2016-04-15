@@ -37,7 +37,7 @@ class GuestController extends Controller
     public function handleLogin(Request $request)
     {
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember_me)) {
-            return redirect()->intended('defaultpage');
+            return redirect()->intended('/');
         } elseif (Auth::attempt(['email' => $request->username, 'password' => $request->password], $request->remember_me)) {
             return redirect()->intended('/');
         } else {
