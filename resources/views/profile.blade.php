@@ -68,31 +68,31 @@
 
                     <tr>
                         <th><span>Geboortedatum:</span></th>
-                        <td></td>
+                        <td>{{ date('d-m-Y', strtotime($myAccount->details->birthday)) }}</td>
                     </tr>
                     <tr>
                         <th><span>Adres:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->address}}</td>
                     </tr>
                     <tr>
                         <th><span>Postcode:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->zipcode}}</td>
                     </tr>
                     <tr>
                         <th><span>Woonplaats:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->city}}</td>
                     </tr>
                     <tr>
                         <th><span>Land:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->country}}</td>
                     </tr>
                     <tr>
                         <th><span>Tel. mobiel:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->mobile}}</td>
                     </tr>
                     <tr>
                         <th><span>Tel. thuis:</span></th>
-                        <td></td>
+                        <td>{{$myAccount->details->cellphone}}</td>
                     </tr>
                     <tr>
                         <td><a class="btn btn-primary" href="/mijn-gegevens/persoonsgegevens/">wijzigen</a></td>
