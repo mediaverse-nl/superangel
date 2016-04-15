@@ -14,4 +14,7 @@
 Route::get('/', "UserController@index");
 
 Route::get('/registreren', "UserController@register");
+Route::post('/registreren', "UserController@handleRegister");
 Route::get('/inloggen', "UserController@login");
+Route::post('/inloggen', "UserController@handleLogin");
+Route::get('/uitloggen', "UserController@logout");

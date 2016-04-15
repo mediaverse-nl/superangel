@@ -8,23 +8,18 @@
                 <div class="panel panel-login">
                     <br>
                     <form action="/inloggen" method="POST" style="margin:0px auto;display:table;">
+                        @if ($errors->first())
+                            <span class="help-block">
+                                        <strong>{{ $errors->first() }}</strong>
+                                    </span>
+                        @endif
                         {!! csrf_field() !!}
                         <div class="form-group">
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                            @endif
                             <p>Gebruikersnaam / E-mail</p>
-                            <input type="text" name="login" id="username" tabindex="1" class="form-control"
+                            <input type="text" name="username" id="username" tabindex="1" class="form-control"
                                    placeholder=""
-                                   value="{{ old('email') }}">
+                                   value="{{ old('username') }}">
                             <br>
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                            @endif
                             <p>Wachtwoord</p>
                             <input type="password" name="password" id="password" tabindex="2" class="form-control"
                                    placeholder="">
@@ -35,7 +30,7 @@
                                    class="form-control btn btn-login" value="Log In">
                         </div>
                         <div class="text-center">
-                            <input type="checkbox" name="remember_me"> <label for="remember">Gegevens onthouden</label>
+                            <input type="checkbox" name="remember_me" value="{{ old('remember_me') }}"> <label for="remember">Gegevens onthouden</label>
                             <br>
                             <br>
                         </div>
