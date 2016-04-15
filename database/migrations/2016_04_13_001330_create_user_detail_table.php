@@ -18,6 +18,7 @@ class CreateUserDetailTable extends Migration
             $table->string('firstname', 20);
             $table->string('lastname', 50);
             $table->enum('sex', array('man', 'vrouw'));
+            $table->date('birthday');
             $table->string('address', 255);
             $table->string('zipcode', 10);
             $table->string('city');
