@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', "UserController@index");
+Route::get('/', "GuestController@index");
 
-Route::get('/registreren', "UserController@register");
-Route::post('/registreren', "UserController@handleRegister");
-Route::get('/inloggen', "UserController@login");
-Route::post('/inloggen', "UserController@handleLogin");
-Route::get('/uitloggen', "UserController@logout");
+Route::get('/inloggen', "GuestController@login");
+Route::post('/inloggen', "GuestController@handleLogin");
+Route::get('/uitloggen', "GuestController@logout");
+Route::get('/registreren', "GuestController@register");
+Route::post('/registreren', "GuestController@handleRegister");
+
+Route::get('/mijn-gegevens', 'UserController@profile');

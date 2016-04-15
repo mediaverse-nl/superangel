@@ -63,7 +63,7 @@
 							</li>
                     @else
 							<li><a href="/registreren/">registreren</a></li>
-							<li><a href="/inloggen/">inloggen</a></li>';
+							<li><a href="/inloggen/">inloggen</a></li>
                     @endif
                 </ul>
 

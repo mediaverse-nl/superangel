@@ -10,4 +10,6 @@ class UserDetail extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public $timestamps = false;
 }
