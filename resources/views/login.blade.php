@@ -30,7 +30,7 @@
                                    class="form-control btn btn-login" value="Log In">
                         </div>
                         <div class="text-center">
-                            <input type="checkbox" name="remember_me" value="{{ old('remember_me') }}"> <label for="remember">Gegevens onthouden</label>
+                            <input type="checkbox" name="remember_me"> <label for="remember">Gegevens onthouden</label>
                             <br>
                             <br>
                         </div>

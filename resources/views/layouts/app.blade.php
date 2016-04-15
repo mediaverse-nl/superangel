@@ -49,9 +49,22 @@
             <div id="navbar" class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="/registreren/">registreren</a></li>
-                    <li><a href="/inloggen/">inloggen</a></li>
+                    @if(Auth::check())
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mijn Account <span class="caret"></span></a>
+								<span style="font-size: smaller; position: absolute; margin: -17px 0px 0px 15px;">{{Auth::user()->username}}</span>
+								<ul class="dropdown-menu">	<li class="dropdown-header">Mijn Paneel</li>
+									<li><a href="/mijn-bestellingen/">Mijn Bestellingen</a></li>
+									<li><a href="/mijn-wenslijst/">Mijn Wenslijst</a></li>
+									<li><a href="/mijn-gegevens/">Mijn Gegevens</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="/uitloggen/">Uitloggen</a></li>
+								</ul>
+							</li>
+                    @else
+							<li><a href="/registreren/">registreren</a></li>
+							<li><a href="/inloggen/">inloggen</a></li>';
+                    @endif
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -181,10 +194,10 @@
 
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-<script src="assets/js/bootstrap.js"></script>
+{{--<script src="assets/js/bootstrap.js"></script>--}}
 <script src="assets/plugins/slick/slick.js"></script>
 </body>
 </html>
