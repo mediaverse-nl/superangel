@@ -16,6 +16,14 @@ class UserController extends Controller
         return view('index', $data);
     }
 
+    public function login()
+    {
+        $data = array(
+            'title' => 'Inloggen'
+        );
+        return view('login', $data);
+    }
+
     public function register()
     {
         $data = array(

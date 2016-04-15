@@ -12,3 +12,6 @@
 */
 
 Route::get('/', "UserController@index");
+
+Route::get('/registreren', "UserController@register");
+Route::get('/inloggen', "UserController@login");

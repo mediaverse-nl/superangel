@@ -1,0 +1,38 @@
+
+
+input[type=text], input[type=password]{
+  width: 400px;
+}
+.form-group{
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: 12px 0px;
+}
+
+.option-panel{
+  width: 400px;
+  border-top: 1px solid rgba(0,0,0,.1);
+
+}
+
+.form-group > p {
+  font-weight: bold;
+}
+
+.option-panel > .col-lg-6{
+  padding-top: 20px;
+}
+
+.panel-login{
+  margin-bottom: 70px !important;
+}
+
+#login-submit{
+  width: 100%;
+  background-color: #5689db;
+  color: #fff;
+  height: 40px;
+}
+
+.register{
+  border-right: 1px solid rgba(0,0,0,.1);
+}

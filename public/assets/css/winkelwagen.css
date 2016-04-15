@@ -1,0 +1,112 @@
+.woocommerce table.shop_table, .woocommerce-page table.shop_table {
+  border-radius: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  margin-bottom: 40px;
+}
+.woocommerce table.shop_table {
+  border: 1px solid rgba(0,0,0,.1);
+  margin: 0 -1px 24px 0;
+  text-align: left;
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 5px;
+}
+
+tr{
+  font-size: 14px;
+  line-height: 22px;
+  border-top: 1px solid rgba(0,0,0,.1);
+  width: 100%;
+}
+thead{
+  padding: 5px;
+}
+
+th{
+  padding: 12px 10px;
+
+}
+.product-remove{
+  padding: 10px;
+}
+
+.product-remove{
+
+}
+.product-quantity{
+
+}
+ .quantity input{
+    width: 60px;
+  }
+
+.cart_item{
+  padding: 20px;
+}
+
+.product-thumbnail img{
+  width: auto;
+}
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.product-thumbnail{
+  padding: 12px 0px;
+}
+
+.coupon{
+  padding: 20px;
+}
+
+
+
+.header-title > .container{
+
+}
+
+.page-title{
+  padding: 20px;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+h3, .h3 {
+  font-size: 24px;
+}
+h1, .h1, h2, .h2, h3, .h3, .bag-totals {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.cart_totals{
+  width: 100%;
+}
+.cart_totals > table{
+  width: 100%;
+}
+
+.wc-proceed-to-checkout:hover{
+
+}
+
+
+
+
+
+
+
