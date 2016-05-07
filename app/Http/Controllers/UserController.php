@@ -24,4 +24,11 @@ class UserController extends Controller
             ->with('myAccount', \App\User::find(Auth::user()->id));
 
     }
+
+    public function updateAccount()
+    {
+        return view('profile')
+            ->with('title', 'Gegevens Wijzigen')
+            ->with('myAccount', \App\User::find(Auth::user()->id));
+    }
 }
