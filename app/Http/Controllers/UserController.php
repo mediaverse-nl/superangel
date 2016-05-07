@@ -22,5 +22,6 @@ class UserController extends Controller
         return view('profile')
             ->with('title', 'Mijn Gegevens')
             ->with('myAccount', \App\User::find(Auth::user()->id));
+
     }
 }
