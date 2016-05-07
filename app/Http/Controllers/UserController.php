@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function profile()
     {
-        return view('profile')
+        return view('User.profile')
             ->with('title', 'Mijn Gegevens')
             ->with('myAccount', \App\User::find(Auth::user()->id));
 
@@ -27,8 +27,6 @@ class UserController extends Controller
 
     public function updateAccount()
     {
-        return view('profile')
-            ->with('title', 'Gegevens Wijzigen')
-            ->with('myAccount', \App\User::find(Auth::user()->id));
+
     }
 }
