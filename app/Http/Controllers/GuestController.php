@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,7 +48,7 @@ class GuestController extends Controller
 
     public function handleRegister(Request $request)
     {
-        $data = Input::only('username', 'email', 'password', 'password_confirmation', 'avg');
+        $data = $request->only('username', 'email', 'password', 'password_confirmation', 'avg');
         $validator = Validator::make($data,
             [
                 'username' => 'required|max:255|min:3|unique:users',
@@ -62,6 +63,7 @@ class GuestController extends Controller
         } else {
             $data['reg_ip'] = $request->getClientIp(true);
             $data['password'] = Hash::make($data['password']);
+            $data['customer_id'] = Uuid::numerify("%%%%%%%%%");
             $user = \App\User::create($data);
             $user->details()->create(array());
             return redirect('/inloggen');

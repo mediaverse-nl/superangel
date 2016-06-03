@@ -20,4 +20,5 @@ Route::get('/registreren', "GuestController@register");
 Route::post('/registreren', "GuestController@handleRegister");
 
 Route::get('/mijn-gegevens', 'UserController@profile');
-Route::get('/mijn-gegevens/accountgegevens', 'UserController@updateAccount');
+Route::post('/mijn-gegevens/updateAccount', 'UserController@updateAccount');
+Route::post('/mijn-gegevens/updateAddress', 'UserController@updateAddress');

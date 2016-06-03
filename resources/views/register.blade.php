@@ -9,8 +9,7 @@
 
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                 <label for="inputName" class="control-label">Gebruikersnaam</label>
-                <input value="{{old("username")}}" type="text" class="form-control" placeholder="Gebruikersnaam"
-                       name="username" id="inputName" data-error="Vul dit in." required="">
+                <input value="{{old("username")}}" type="text" class="form-control" placeholder="Gebruikersnaam" name="username" id="inputName" data-error="Vul dit in." required="">
                 @if ($errors->has('username'))
                     <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>
