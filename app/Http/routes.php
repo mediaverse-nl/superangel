@@ -19,6 +19,8 @@ Route::get('/uitloggen', "GuestController@logout");
 Route::get('/registreren', "GuestController@register");
 Route::post('/registreren', "GuestController@handleRegister");
 
+Route::get('/winkelwagen', 'CartController@index');
+
 Route::get('/mijn-gegevens', 'UserController@profile');
 Route::post('/mijn-gegevens/updateAccount', 'UserController@updateAccount');
 Route::post('/mijn-gegevens/updateAddress', 'UserController@updateAddress');
