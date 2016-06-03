@@ -70,7 +70,7 @@
                 <form action="/mijn-gegevens/updateAddress" method="post">
                     <div class="form-group">
                         <label>Straat:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->street}}">
+                        <input type="text" name="street" class="form-control" value="{{$myAccount->details->street}}">
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6">
@@ -84,23 +84,23 @@
                     </div>
                     <div class="form-group">
                         <label>Postcode:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->zipcode}}">
+                        <input type="text" name="zipcode" class="form-control" value="{{$myAccount->details->zipcode}}">
                     </div>
                     <div class="form-group">
                         <label>Woonplaats:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->city}}">
+                        <input type="text" name="city" class="form-control" value="{{$myAccount->details->city}}">
                     </div>
                     <div class="form-group">
                         <label>Land:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->country}}">
+                        <input type="text" name="country" class="form-control" value="{{$myAccount->details->country}}">
                     </div>
                     <div class="form-group">
                         <label>Tel. mobiel:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->mobile}}">
+                        <input type="number" name="mobile" placeholder="0612345678" class="form-control" value="{{$myAccount->details->mobile}}">
                     </div>
                     <div class="form-group">
                         <label>Tel. thuis:</label>
-                        <input type="text" class="form-control" value="{{$myAccount->details->cellphone}}">
+                        <input type="number" name="cellphone" placeholder="1234567890" class="form-control" value="{{$myAccount->details->cellphone}}">
                     </div>
                     {!! csrf_field() !!}
                     <input value="Wijzig" type="submit" class="btn btn-primary col-lg-offset-9 col-lg-3">

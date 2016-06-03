@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\UserDetail;
 use Illuminate\Http\Request;
 
 use App\User;
@@ -55,8 +56,10 @@ class UserController extends Controller
 
     }
 
-    public function updateAddress()
+    public function updateAddress(Request $request)
     {
-
+        $data = $request->except('_token');
+        UserDetail::where('user_id', Auth::user()->id)->update($data);
+        return back();
     }
 }
