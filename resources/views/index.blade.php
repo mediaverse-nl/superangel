@@ -1,31 +1,57 @@
 @extends('layouts.app')
-
-@section('header')
-    <div class="header-title" style="border-bottom: 1px solid #eee; margin-bottom: 20px;">
-        <div class="container">
-            <div class="row" style="width: 400px; display: inline-block;">
-                <h1 class="page-title " style="text-decoration: underline;">
-                    Shop			</h1>
-            </div>
-
-            <div class="pull-right" style="margin-top: 30px; display: inline-block">
-                <br><ol class="breadcrumb breadcrumb-arrow pull-right"><li class="active"><a>Shop</a></li></ol>		</div>
-        </div>
-    </div>
-@endsection
-
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+    <div class="container">
 
-                <div class="panel-body">
-                    You are logged in!
+        <div class="col-lg-2" style="padding-left: 0px;">
+            <ul>
+                @foreach ($categories as $category)
+                    <li><a href="/shop/{{$category->name}}">{{$category->name}}</a></li>
+                    @if($category->active)
+                        <ul>
+                            @foreach($category->subcategories as $subcategory)
+                                <li><a href="/shop/{{$category->name}}/{{$subcategory->name}}">{{$subcategory->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+
+
+        <div class="col-lg-10">
+            <div class="row">
+            </div>
+        </div>
+
+        <div class="col-lg-10" style=" height: 400px;">
+            <div class="row">
+                <div class="main-carousel" style="padding-left: 20px;">
+                    <div>
+                        <img style="width: 100%;" src="/img/folders/boris_nieuwe_col_002.jpg">
+                    </div>
+                    <div>
+                        <img style="width: 100%;" src="/img/folders/Halsoverkop.jpg">
+                    </div>
+                    <div>
+                        <img style="width: 100%;" src="/img/folders/Zara-collectie-mei-20101.jpg">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="col-lg-10 pull-right" style="padding-right: 0px;">
+            <br>
+            <div class="" style=" padding: 10px; color: #777777; border-top: 1px dashed #D2D2D3; border-bottom: 1px dashed #D2D2D3; margin-left: 5px;">
+                nieuwste collectie
+                <div class="pull-right"></div>
+            </div>
+            <br>
+        </div>
+        <div class="col-lg-10 pull-right" style=" height: 400px;">
+            <div class="row">
+                <div class="carousel-newproducts">
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- /container -->
 @endsection

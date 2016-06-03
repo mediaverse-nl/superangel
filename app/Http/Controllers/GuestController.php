@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ItemCategories;
+use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 
@@ -13,10 +15,24 @@ use Illuminate\Support\Facades\Validator;
 
 class GuestController extends Controller
 {
-    public function index()
-    {
 
-        return view('index')->with('title', 'Home');
+    public function __construct()
+    {
+    }
+
+
+    public function index($category = false, $subcategory = false)
+    {
+        $data['categories'] = ItemCategories::where('group', null)->get();
+        foreach ($data['categories'] as $object) {
+            if ($object->name == $category) {
+                $object->active = true;
+            } else {
+                $object->active = false;
+            }
+            $object->subcategories = ItemCategories::where('group', $object->name)->get();
+        }
+        return view('index', $data)->with('title', 'Home');
     }
 
     public function login()

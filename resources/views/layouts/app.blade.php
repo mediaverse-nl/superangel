@@ -75,12 +75,22 @@
     <div class="container" style="height: 50px; border-color: #e7e7e7;">
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-
-                <li><a href="/shop/T-shirts/">T-shirts</a></li>
-                <li><a href="/shop/Jeans/">Jeans</a></li>
-                <li><a href="/shop/Broeken/">Broeken</a></li>
-                <li><a href="/shop/Jurken/">Jurken</a></li>
-                <li><a href="/shop/Rokken/">Rokken</a></li>
+                @foreach ($categories as $category)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$category->name}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">{{$category->name}}</li>
+                            @foreach($category->subcategories as $subcategory)
+                                <li><a href="/shop/{{$category->name}}/{{$subcategory->name}}">{{$subcategory->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+                {{--<li><a href="/shop/T-shirts/">T-shirts</a></li>--}}
+                {{--<li><a href="/shop/Jeans/">Jeans</a></li>--}}
+                {{--<li><a href="/shop/Broeken/">Broeken</a></li>--}}
+                {{--<li><a href="/shop/Jurken/">Jurken</a></li>--}}
+                {{--<li><a href="/shop/Rokken/">Rokken</a></li>--}}
                 <li class="navbar-right"><a href="/winkelwagen/">0 item(s) - €0.-<img style="height: 19px;"
                                                                                       src="assets/img/logo/shopping-cart.png"></a>
                 </li>

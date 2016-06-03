@@ -45,6 +45,7 @@ class UserController extends Controller
                     return back()->withInput()->withErrors($validator->messages());
                 }else{
                     $input = $request->except('_token', 'old_password', 'password_confirmation');
+                    $input['password'] = Hash::make($input['password']);
                     User::where('id', Auth::user()->id)->update($input);
                     return back();
                 }

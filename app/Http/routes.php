@@ -12,6 +12,7 @@
 */
 
 Route::get('/', "GuestController@index");
+Route::get('/shop/{category?}/{subcategory?}', "GuestController@index");
 
 Route::get('/inloggen', "GuestController@login");
 Route::post('/inloggen', "GuestController@handleLogin");
@@ -24,3 +25,4 @@ Route::get('/winkelwagen', 'CartController@index');
 Route::get('/mijn-gegevens', 'UserController@profile');
 Route::post('/mijn-gegevens/updateAccount', 'UserController@updateAccount');
 Route::post('/mijn-gegevens/updateAddress', 'UserController@updateAddress');
+
