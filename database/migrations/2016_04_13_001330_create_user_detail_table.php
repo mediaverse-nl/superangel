@@ -15,11 +15,9 @@ class CreateUserDetailTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id', false, true);
-            $table->string('firstname', 20);
-            $table->string('lastname', 50);
-            $table->enum('sex', array('man', 'vrouw'));
-            $table->date('birthday');
-            $table->string('address', 255);
+            $table->string('street', 255);
+            $table->integer('number');
+            $table->string('number_addon');
             $table->string('zipcode', 10);
             $table->string('city');
             $table->string('country');
