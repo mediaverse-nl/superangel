@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+
+use App\ItemCategories;
+use Illuminate\Support\Facades\View;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -25,7 +28,13 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         //
-
+        if (defined('BASEPATH')){
+            $data = ItemCategories::where('group', null)->get();
+            foreach ($data as $object) {
+                $object->subcategories = ItemCategories::where('group', $object->name)->get();
+            }
+            View::share('categories', $data);
+        }
         parent::boot($router);
     }
 
