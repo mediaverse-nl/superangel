@@ -75,7 +75,7 @@
     <div class="container" style="height: 50px; border-color: #e7e7e7;">
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @foreach ($categories as $category)
+                @foreach ($menu_categories as $category)
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$category->name}} <span class="caret"></span></a>
                         <ul class="dropdown-menu">

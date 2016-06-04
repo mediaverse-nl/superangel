@@ -5,7 +5,7 @@
         <div class="col-lg-2" style="padding-left: 0px;">
             <ul>
                 @foreach ($categories as $category)
-                    <li><a href="/shop/{{$category->name}}">{{$category->name}}</a></li>
+                    <li {{($category->active ? 'class=active' : '')}}><a href="/shop/{{$category->name}}">{{$category->name}}</a></li>
                     @if($category->active)
                         <ul>
                             @foreach($category->subcategories as $subcategory)
