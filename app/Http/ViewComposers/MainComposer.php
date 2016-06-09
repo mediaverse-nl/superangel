@@ -11,7 +11,7 @@ class MainComposer
     protected $data;
 
     public function __construct(){
-        $this->data = ItemCategories::where('group', null)->get();
+        $this->data = ItemCategories::where('group', '')->get();
         foreach ($this->data as $object) {
             $object->subcategories = ItemCategories::where('group', $object->name)->get();
         }

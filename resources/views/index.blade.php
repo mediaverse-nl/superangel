@@ -28,7 +28,7 @@
                 <div class="main-carousel" style="padding-left: 20px;">
                     @foreach($carousel as $item)
                     <div>
-                        <img style="width: 100%; height: 400px;" src="{{$item->url}}" alt="{{$item->name}}">
+                        <img style="width: 100%; height: 400px;" src="/assets/img/folders/{{$item->url}}" alt="{{$item->name}}">
                     </div>
                     @endforeach
                 </div>

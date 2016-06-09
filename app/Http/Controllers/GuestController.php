@@ -25,7 +25,7 @@ class GuestController extends Controller
     public function index($category = false, $subcategory = false)
     {
         $data['carousel'] = CarouselImages::where('public', 1)->get();
-        $data['categories'] = ItemCategories::where('group', null)->get();
+        $data['categories'] = ItemCategories::where('group', '')->get();
         foreach ($data['categories'] as $object) {
             if ($object->name == $category) {
                 $object->active = true;
@@ -37,9 +37,10 @@ class GuestController extends Controller
         return view('index', $data)->with('title', 'Home');
     }
 
-    public function shop($category = false, $subcategory = false){
-        $data['carousel'] = CarouselImages::where('public', 1)->get();
-        $data['categories'] = ItemCategories::where('group', null)->get();
+    public function shop($category = false, $subcategory = false)
+    {
+        $title = $category ? $category . " - " . $subcategory : "Shop";
+        $data['categories'] = ItemCategories::where('group', '')->get();
         foreach ($data['categories'] as $object) {
             if ($object->name == $category) {
                 $object->active = true;
@@ -48,7 +49,7 @@ class GuestController extends Controller
             }
             $object->subcategories = ItemCategories::where('group', $object->name)->get();
         }
-        return view('index', $data)->with('title', 'Home');
+        return view('shop', $data)->with('title', $title);
     }
 
     public function login()
