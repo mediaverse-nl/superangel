@@ -28,6 +28,6 @@ class CreateItemImagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('item_images');
     }
 }

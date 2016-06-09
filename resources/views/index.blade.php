@@ -26,15 +26,11 @@
         <div class="col-lg-10" style=" height: 400px;">
             <div class="row">
                 <div class="main-carousel" style="padding-left: 20px;">
+                    @foreach($carousel as $item)
                     <div>
-                        <img style="width: 100%;" src="/img/folders/boris_nieuwe_col_002.jpg">
+                        <img style="width: 100%; height: 400px;" src="{{$item->url}}" alt="{{$item->name}}">
                     </div>
-                    <div>
-                        <img style="width: 100%;" src="/img/folders/Halsoverkop.jpg">
-                    </div>
-                    <div>
-                        <img style="width: 100%;" src="/img/folders/Zara-collectie-mei-20101.jpg">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemCategoriesTable extends Migration
+class CreateCarouselImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateItemCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_categories', function (Blueprint $table) {
+        Schema::create('carousel_images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('group');
+            $table->string('url');
+            $table->boolean('public');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateItemCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('item_categories');
+        Schema::create('user_chart_items');
     }
 }

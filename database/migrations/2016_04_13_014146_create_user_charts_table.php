@@ -28,6 +28,6 @@ class CreateUserChartsTable extends Migration
      */
     public function down()
     {
-        Schema::create('user_charts');
+        Schema::create('user_chart_items');
     }
 }

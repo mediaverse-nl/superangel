@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CarouselImages;
 use App\ItemCategories;
 use App\User;
 use Faker\Provider\Uuid;
@@ -23,6 +24,21 @@ class GuestController extends Controller
 
     public function index($category = false, $subcategory = false)
     {
+        $data['carousel'] = CarouselImages::where('public', 1)->get();
+        $data['categories'] = ItemCategories::where('group', null)->get();
+        foreach ($data['categories'] as $object) {
+            if ($object->name == $category) {
+                $object->active = true;
+            } else {
+                $object->active = false;
+            }
+            $object->subcategories = ItemCategories::where('group', $object->name)->get();
+        }
+        return view('index', $data)->with('title', 'Home');
+    }
+
+    public function shop($category = false, $subcategory = false){
+        $data['carousel'] = CarouselImages::where('public', 1)->get();
         $data['categories'] = ItemCategories::where('group', null)->get();
         foreach ($data['categories'] as $object) {
             if ($object->name == $category) {

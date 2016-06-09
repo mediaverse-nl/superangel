@@ -12,7 +12,7 @@
 */
 
 Route::get('/', "GuestController@index");
-Route::get('/shop/{category?}/{subcategory?}', "GuestController@index");
+Route::get('/shop/{category?}/{subcategory?}', "GuestController@shop");
 
 Route::get('/inloggen', "GuestController@login");
 Route::post('/inloggen', "GuestController@handleLogin");

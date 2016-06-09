@@ -31,6 +31,11 @@
             padding: 2px 0;
         }
     </style>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" style="height: 105px !important;">
@@ -50,20 +55,22 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mijn Account <span class="caret"></span></a>
-								<span style="font-size: smaller; position: absolute; margin: -17px 0px 0px 15px;">{{Auth::user()->username}}</span>
-								<ul class="dropdown-menu">	<li class="dropdown-header">Mijn Paneel</li>
-									<li><a href="/mijn-bestellingen/">Mijn Bestellingen</a></li>
-									<li><a href="/mijn-wenslijst/">Mijn Wenslijst</a></li>
-									<li><a href="/mijn-gegevens/">Mijn Gegevens</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="/uitloggen/">Uitloggen</a></li>
-								</ul>
-							</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mijn Account
+                                <span class="caret"></span></a>
+                            <span style="font-size: smaller; position: absolute; margin: -17px 0px 0px 15px;">{{Auth::user()->username}}</span>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Mijn Paneel</li>
+                                <li><a href="/mijn-bestellingen/">Mijn Bestellingen</a></li>
+                                <li><a href="/mijn-wenslijst/">Mijn Wenslijst</a></li>
+                                <li><a href="/mijn-gegevens/">Mijn Gegevens</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/uitloggen/">Uitloggen</a></li>
+                            </ul>
+                        </li>
                     @else
-							<li><a href="/registreren/">registreren</a></li>
-							<li><a href="/inloggen/">inloggen</a></li>
+                        <li><a href="/registreren/">registreren</a></li>
+                        <li><a href="/inloggen/">inloggen</a></li>
                     @endif
                 </ul>
 
@@ -77,11 +84,14 @@
             <ul class="nav navbar-nav">
                 @foreach ($menu_categories as $category)
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$category->name}} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$category->name}}
+                            <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">{{$category->name}}</li>
                             @foreach($category->subcategories as $subcategory)
-                                <li><a href="/shop/{{$category->name}}/{{$subcategory->name}}">{{$subcategory->name}}</a></li>
+                                <li>
+                                    <a href="/shop/{{$category->name}}/{{$subcategory->name}}">{{$subcategory->name}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -91,8 +101,8 @@
                 {{--<li><a href="/shop/Broeken/">Broeken</a></li>--}}
                 {{--<li><a href="/shop/Jurken/">Jurken</a></li>--}}
                 {{--<li><a href="/shop/Rokken/">Rokken</a></li>--}}
-                <li class="navbar-right"><a href="/winkelwagen/">0 item(s) - €0.-<img style="height: 19px;"
-                                                                                      src="assets/img/logo/shopping-cart.png"></a>
+                <li class="navbar-right">
+                    <a href="/winkelwagen/">0 item(s) - €0.-<img style="height: 19px;" src="/assets/img/logo/shopping-cart.png"></a>
                 </li>
                 <div class="nav navbar-nav col-lg-3 navbar-right">
                     <form action="/shop/" method="get">
@@ -122,7 +132,7 @@
             <br>
             <ol class="breadcrumb breadcrumb-arrow pull-right">
                 @if($title != 'Home')
-                <li class="active"><a href="/">Home</a></li>
+                    <li class="active"><a href="/">Home</a></li>
                 @endif
                 <li class="active"><a>{{$title}}</a></li>
             </ol>
@@ -182,16 +192,16 @@
                 <ul class="social">
                     <li style="display: inline-block; margin: 5px"><a style="height: 50px;" target="_blank"
                                                                       href="https://www.facebook.com/Biggirlz/?fref=ts"><img
-                                    style="height: 50px;" src="assets/img/logo/rss.png"></a></li>
+                                    style="height: 50px;" src="/assets/img/logo/rss.png"></a></li>
                     <li style="display: inline-block; margin: 5px"><a style="height: 50px;" target="_blank"
                                                                       href="https://www.facebook.com/Biggirlz/?fref=ts"><img
-                                    style="height: 50px;" src="assets/img/logo/googleplus.png"></a></li>
+                                    style="height: 50px;" src="/assets/img/logo/googleplus.png"></a></li>
                     <li style="display: inline-block; margin: 5px"><a style="height: 50px;" target="_blank"
                                                                       href="https://www.facebook.com/Biggirlz/?fref=ts"><img
-                                    style="height: 50px;" src="assets/img/logo/facebook500.png"></a></li>
+                                    style="height: 50px;" src="/assets/img/logo/facebook500.png"></a></li>
                     <li style="display: inline-block; margin: 5px"><a style="height: 50px;" target="_blank"
                                                                       href="https://www.facebook.com/Biggirlz/?fref=ts"><img
-                                    style="height: 50px;" src="assets/img/logo/twitter.png"></a></li>
+                                    style="height: 50px;" src="/assets/img/logo/twitter.png"></a></li>
                 </ul>
             </div>
         </div>
@@ -207,7 +217,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-{{--<script src="assets/js/bootstrap.js"></script>--}}
-<script src="assets/plugins/slick/slick.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/plugins/slick/slick.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.main-carousel').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: true,
+            focusOnSelect: false
+        });
+        $('.carousel-newproducts').slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: true,
+            focusOnSelect: false
+        });
+    });
+</script>
 </body>
 </html>
