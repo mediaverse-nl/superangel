@@ -34,6 +34,10 @@ class CreateUserDetailTable extends Migration
      */
     public function down()
     {
+        Schema::table('user_details', function(Blueprint $table)
+        {
+            $table->dropForeign('user_details_user_id_foreign');
+        });
         Schema::drop('user_details');
     }
 }

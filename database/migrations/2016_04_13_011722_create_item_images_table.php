@@ -28,6 +28,10 @@ class CreateItemImagesTable extends Migration
      */
     public function down()
     {
+        Schema::table('item_images', function(Blueprint $table)
+        {
+            $table->dropForeign('item_images_item_id_foreign');
+        });
         Schema::drop('item_images');
     }
 }

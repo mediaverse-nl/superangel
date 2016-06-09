@@ -28,6 +28,11 @@ class CreateOrderItemsTable extends Migration
      */
     public function down()
     {
+        Schema::table('order_items', function(Blueprint $table)
+        {
+            $table->dropForeign('order_items_item_id_foreign');
+            $table->dropForeign('order_items_order_id_foreign');
+        });
         Schema::drop('order_items');
     }
 }

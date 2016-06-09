@@ -28,6 +28,11 @@ class CreateUserChartsTable extends Migration
      */
     public function down()
     {
-        Schema::create('user_chart_items');
+        Schema::table('user_chart_items', function(Blueprint $table)
+        {
+            $table->dropForeign('user_chart_items_item_id_foreign');
+            $table->dropForeign('user_chart_items_user_id_foreign');
+        });
+        Schema::drop('user_chart_items');
     }
 }

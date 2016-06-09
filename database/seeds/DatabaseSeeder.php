@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(ItemCategories::class);
+         $this->call(ItemCatagory::class);
          $this->call(CarouselSeeder::class);
          $this->call(ItemSeeder::class);
     }

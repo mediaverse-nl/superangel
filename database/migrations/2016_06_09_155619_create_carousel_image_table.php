@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCarouselImageTable extends Migration
 {
@@ -27,6 +28,6 @@ class CreateCarouselImageTable extends Migration
      */
     public function down()
     {
-        Schema::create('user_chart_items');
+        Schema::drop('carousel_images');
     }
 }

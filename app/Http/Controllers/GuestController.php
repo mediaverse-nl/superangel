@@ -41,6 +41,11 @@ class GuestController extends Controller
     {
         $title = $category ? $category . " - " . $subcategory : "Shop";
         if($subcategory){
+//            echo '<pre>';
+//            $foo = ItemCategory::where(['group' => $category, 'name'=> $subcategory])->with('items')->first();
+//            print_r($foo);
+//            exit();
+
             $id = ItemCategory::where(['group' => $category, 'name'=> $subcategory])->first()->id;
 
             $data['products'] = Item::where('category_id', $id)->get();
