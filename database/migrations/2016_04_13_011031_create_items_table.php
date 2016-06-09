@@ -19,6 +19,7 @@ class CreateItemsTable extends Migration
             $table->string('description');
             $table->double('price');
             $table->integer('btw');
+            $table->integer('stocks');
             $table->foreign('category_id')->references('id')->on('item_categories')->onUpdate('cascade');
         });
     }

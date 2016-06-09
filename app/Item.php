@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Items extends Model
+class Item extends Model
 {
     public function images()
     {
-        return $this->hasMany('App\ItemImages');
+        return $this->hasMany('App\ItemImage');
     }
 
-    public function categorie()
+    public function category()
     {
-        $this->hasOne('App\ItemCategories');
+        return $this->hasOne('App\ItemCategory');
     }
 }

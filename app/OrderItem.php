@@ -13,6 +13,6 @@ class OrderItem extends Model
 
     public function items()
     {
-        $this->hasMany('App\Items');
+        $this->hasMany('App\Item');
     }
 }

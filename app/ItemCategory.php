@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ItemImage extends Model
+class ItemCategory extends Model
 {
     public function item()
     {

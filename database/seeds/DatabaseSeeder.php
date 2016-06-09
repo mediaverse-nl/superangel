@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(ItemCategories::class);
          $this->call(CarouselSeeder::class);
+         $this->call(ItemSeeder::class);
     }
 }

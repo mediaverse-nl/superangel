@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\CarouselImages;
-use App\ItemCategories;
-use App\User;
+use App\CarouselImage;
+use App\ItemCategory;
+use App\Item;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
 
@@ -24,15 +24,15 @@ class GuestController extends Controller
 
     public function index($category = false, $subcategory = false)
     {
-        $data['carousel'] = CarouselImages::where('public', 1)->get();
-        $data['categories'] = ItemCategories::where('group', '')->get();
+        $data['carousel'] = CarouselImage::where('public', 1)->get();
+        $data['categories'] = ItemCategory::where('group', '')->get();
         foreach ($data['categories'] as $object) {
             if ($object->name == $category) {
                 $object->active = true;
             } else {
                 $object->active = false;
             }
-            $object->subcategories = ItemCategories::where('group', $object->name)->get();
+            $object->subcategories = ItemCategory::where('group', $object->name)->get();
         }
         return view('index', $data)->with('title', 'Home');
     }
@@ -40,14 +40,19 @@ class GuestController extends Controller
     public function shop($category = false, $subcategory = false)
     {
         $title = $category ? $category . " - " . $subcategory : "Shop";
-        $data['categories'] = ItemCategories::where('group', '')->get();
+        if($subcategory){
+            $id = ItemCategory::where(['group' => $category, 'name'=> $subcategory])->first()->id;
+
+            $data['products'] = Item::where('category_id', $id)->get();
+        }
+        $data['categories'] = ItemCategory::where('group', '')->get();
         foreach ($data['categories'] as $object) {
             if ($object->name == $category) {
                 $object->active = true;
             } else {
                 $object->active = false;
             }
-            $object->subcategories = ItemCategories::where('group', $object->name)->get();
+            $object->subcategories = ItemCategory::where('group', $object->name)->get();
         }
         return view('shop', $data)->with('title', $title);
     }
