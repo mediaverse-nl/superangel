@@ -13,6 +13,11 @@ class Item extends Model
 
     public function category()
     {
-        return $this->hasOne('App\ItemCategory');
+        return $this->hasOne('App\ItemCategory', 'id','category_id');
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany('App\ItemStocks');
     }
 }

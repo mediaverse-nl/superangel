@@ -40,14 +40,9 @@ class GuestController extends Controller
     public function shop($category = false, $subcategory = false)
     {
         $title = $category ? $category . " - " . $subcategory : "Shop";
-        if($subcategory){
-//            echo '<pre>';
-//            $foo = ItemCategory::where(['group' => $category, 'name'=> $subcategory])->with('items')->first();
-//            print_r($foo);
-//            exit();
-
-            $id = ItemCategory::where(['group' => $category, 'name'=> $subcategory])->first()->id;
-
+        $data['categoryActive'] = ItemCategory::where('group', $category)->get();
+        if ($subcategory) {
+            $id = ItemCategory::where(['group' => $category, 'name' => $subcategory])->first()->id;
             $data['products'] = Item::where('category_id', $id)->get();
         }
         $data['categories'] = ItemCategory::where('group', '')->get();
@@ -59,7 +54,14 @@ class GuestController extends Controller
             }
             $object->subcategories = ItemCategory::where('group', $object->name)->get();
         }
-        return view('shop', $data)->with('title', $title);
+        return view('shop', $data)->with(['title' => 'Shop', 'bread_category' => $category, 'bread_subcategory' => $subcategory]);
+    }
+
+    public function product($category, $subcategory, $item)
+    {
+        $id = ItemCategory::where(['group' => $category, 'name' => $subcategory])->first()->id;
+        $data['product'] = Item::where(array('category_id' => $id, 'name' => $item))->first();
+        return view('product', $data)->with(['title' => 'Product: ' . $item, 'bread_category' => $category, 'bread_subcategory' => $subcategory]);
     }
 
     public function login()

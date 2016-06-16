@@ -13,6 +13,7 @@
 
 Route::get('/', "GuestController@index");
 Route::get('/shop/{category?}/{subcategory?}', "GuestController@shop");
+Route::get('/product/{category?}/{subcategory?}/{item?}', "GuestController@product");
 
 Route::get('/inloggen', "GuestController@login");
 Route::post('/inloggen', "GuestController@handleLogin");
@@ -21,6 +22,7 @@ Route::get('/registreren', "GuestController@register");
 Route::post('/registreren', "GuestController@handleRegister");
 
 Route::get('/winkelwagen', 'CartController@index');
+Route::post('/winkelwagen', 'CartController@store');
 
 Route::get('/mijn-gegevens', 'UserController@profile');
 Route::post('/mijn-gegevens/updateAccount', 'UserController@updateAccount');

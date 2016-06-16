@@ -96,13 +96,8 @@
                         </ul>
                     </li>
                 @endforeach
-                {{--<li><a href="/shop/T-shirts/">T-shirts</a></li>--}}
-                {{--<li><a href="/shop/Jeans/">Jeans</a></li>--}}
-                {{--<li><a href="/shop/Broeken/">Broeken</a></li>--}}
-                {{--<li><a href="/shop/Jurken/">Jurken</a></li>--}}
-                {{--<li><a href="/shop/Rokken/">Rokken</a></li>--}}
                 <li class="navbar-right">
-                    <a href="/winkelwagen/">0 item(s) - €0.-<img style="height: 19px;" src="/assets/img/logo/shopping-cart.png"></a>
+                    <a href="/winkelwagen/">{{Cart::count()}} item(s) - €{{number_format(Cart::total(), 2, ',', '.')}}<img style="height: 19px;" src="/assets/img/logo/shopping-cart.png"></a>
                 </li>
                 <div class="nav navbar-nav col-lg-3 navbar-right">
                     <form action="/shop/" method="get">
@@ -131,10 +126,24 @@
         <div class="pull-right" style="margin-top: 30px; display: inline-block">
             <br>
             <ol class="breadcrumb breadcrumb-arrow pull-right">
-                @if($title != 'Home')
-                    <li class="active"><a href="/">Home</a></li>
+                @if(isset($bread_category) && !isset($bread_subcategory))
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/">{{$bread_category}}</a></li>
+                @elseif(isset($bread_category) && isset($bread_subcategory) && !str_contains($title, 'Product: '))
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shop/{{$bread_category}}">{{$bread_category}}</a></li>
+                    <li>{{$bread_subcategory}}</li>
+                @elseif(isset($bread_category) && isset($bread_subcategory) && str_contains($title, 'Product: '))
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shop/{{$bread_category}}">{{$bread_category}}</a></li>
+                    <li><a href="/shop/{{$bread_category}}/{{$bread_subcategory}}">{{$bread_subcategory}}</a></li>
+                    <li class="active">{{$title}}</li>
+                @else
+                    @if($title != 'Home')
+                        <li><a href="/">Home</a></li>
+                    @endif
+                    <li class="active">{{$title}}</li>
                 @endif
-                <li class="active"><a>{{$title}}</a></li>
             </ol>
         </div>
     </div>
@@ -237,6 +246,21 @@
             autoplaySpeed: 5000,
             arrows: true,
             focusOnSelect: false
+        });
+
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav',
+            adaptiveHeight: true
+        });
+        $('.slider-nav').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            focusOnSelect: true
         });
     });
 </script>

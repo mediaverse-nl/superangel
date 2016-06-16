@@ -14,15 +14,18 @@ class CarouselSeeder extends Seeder
         DB::table('carousel_images')->insert([
             [
                 'name' => 'Test',
-                'url' => 'boris_nieuwe_col_002.jpg'
+                'url' => 'boris_nieuwe_col_002.jpg',
+                'public' => 1
             ],
             [
                 'name' => 'Test1',
-                'url' => 'Halsoverkop.jpg'
+                'url' => 'Halsoverkop.jpg',
+                'public' => 1
             ],
             [
                 'name' => 'Test2',
-                'url' => 'Zara-collectie-mei-20101.jpg'
+                'url' => 'Zara-collectie-mei-20101.jpg',
+                'public' => 1
             ]
         ]);
     }

@@ -37,7 +37,7 @@
         <div class="col-lg-10 pull-right" style="padding-right: 0px;">
             <br>
             <div class="" style=" padding: 10px; color: #777777; border-top: 1px dashed #D2D2D3; border-bottom: 1px dashed #D2D2D3; margin-left: 5px;">
-                nieuwste collectie
+                Nieuwste collectie
                 <div class="pull-right"></div>
             </div>
             <br>

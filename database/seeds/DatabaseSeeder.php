@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
          $this->call(ItemCatagory::class);
          $this->call(CarouselSeeder::class);
          $this->call(ItemSeeder::class);
+         $this->call(ItemImageSeeder::class);
+         $this->call(ItemStocksSeeder::class);
     }
 }
