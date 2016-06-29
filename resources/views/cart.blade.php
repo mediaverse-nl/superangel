@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('errors.messages')
         <div id="products-wrapper" class="row">
             <div class="view-cart">
                 <div class="col-lg-12">
@@ -37,7 +38,7 @@
                                         </p>
                                     </td>
                                     <td class="text-center">&euro;{{number_format($row->subtotal, 2, ',', '.')}}</td>
-                                    <td><a href="/winkelwagen/remove/{{$row->id}}" class="glyphicon glyphicon-remove"></a></td>
+                                    <td><a href="/winkelwagen/remove/{{$row->rowid}}" class="glyphicon glyphicon-remove"></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -73,6 +74,7 @@
                             </div>
                         </div>
                         <a class="btn btn-submit" href="/shop/">Verder winkelen</a>
+                        <a class="btn btn-danger" href="/winkelwagen/remove" style="width: 100% !important; height: 40px; padding: 10px; margin-top: 10px;">Winkelwagen leegmaken</a>
                     </div>
 
 

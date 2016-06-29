@@ -23,6 +23,7 @@ Route::post('/registreren', "GuestController@handleRegister");
 
 Route::get('/winkelwagen', 'CartController@index');
 Route::post('/winkelwagen', 'CartController@store');
+Route::get('/winkelwagen/remove/{id}', 'CartController@destroy');
 
 Route::get('/mijn-gegevens', 'UserController@profile');
 Route::post('/mijn-gegevens/updateAccount', 'UserController@updateAccount');

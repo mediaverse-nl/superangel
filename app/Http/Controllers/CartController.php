@@ -33,24 +33,30 @@ class CartController extends Controller
     {
         $item = Item::find($request->input('item_id'));
         $stocks = $item->stocks->find($request->input('stock_id'));
-        if($stocks->qty >= $request->input('qty')){
-            $chartItem = [
-                'id' => str_random(5) . $item->id,
-                'name' => $item->name,
-                'qty' => $request->input('qty'),
-                'price' => $item->price,
-                'options' => [
-                    'size' => $stocks->size,
-                    'color' => $stocks->color,
-                    'image' => $item->images->first(),
-                    'category' => $request->input('category'),
-                    'subcategory' => $request->input('subcategory')
-                ]
-            ];
-            Cart::add($chartItem);
-            return back()->withErrors(['success' => 'The item is added to your cart']);
-        }else{
-            return back()->withErrors(['warning' => 'The item is out of stock']);
+        if ($temp = Cart::search(['name' => $item->name, 'options' => ['size' => $stocks->size, 'color' => $stocks->color]])) {
+            $tempItem = Cart::get($temp[0]);
+            Cart::update($temp[0], $tempItem->qty++);
+            return back()->withErrors(['success' => 'The items quantity is Updated']);
+        } else {
+            if ($stocks->qty >= $request->input('qty')) {
+                $chartItem = [
+                    'id' => str_random(5) . $item->id,
+                    'name' => $item->name,
+                    'qty' => $request->input('qty'),
+                    'price' => $item->price,
+                    'options' => [
+                        'size' => $stocks->size,
+                        'color' => $stocks->color,
+                        'image' => $item->images->first(),
+                        'category' => $request->input('category'),
+                        'subcategory' => $request->input('subcategory')
+                    ]
+                ];
+                Cart::add($chartItem);
+                return back()->withErrors(['success' => 'The item is added to your cart']);
+            } else {
+                return back()->withErrors(['warning' => 'The item is out of stock']);
+            }
         }
     }
 
@@ -68,6 +74,13 @@ class CartController extends Controller
 
     public function destroy($id)
     {
-        Cart::destroy();
+        if ($id) {
+            $item = Cart::get($id);
+            Cart::remove($id);
+            return back()->withErrors(['success' => 'Item: ' . $item->name . ' has been removed from your cart']);
+        } else {
+            Cart::destroy();
+            return back()->withErrors(['success' => 'All items are removed from your cart']);
+        }
     }
 }

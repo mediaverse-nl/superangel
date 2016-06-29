@@ -1,20 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @foreach($errors->get('success') as $msg)
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <strong>Gelukt!</strong> {{$msg}}.
-            </div>
-        @endforeach
-        @foreach($errors->get('warning') as $msg)
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <strong>Oeps!</strong> {{$msg}}.
-            </div>
-        @endforeach
+        @include('errors.messages')
         <div>
             <div class="col-lg-8" style="height: 100%;">
                 <div class="slider-for col-lg-10 slick-initialized slick-slider" style="height: auto; margin-bottom: 50px;">
